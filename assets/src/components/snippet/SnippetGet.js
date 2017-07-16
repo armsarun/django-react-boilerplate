@@ -12,6 +12,8 @@ class Snippet extends Component{
         }
     }
 
+    //  after render method executed did mount called dom operations and
+    // data fetch are done here
   componentDidMount() {
     axios.get("http://localhost:8000/snippets.json")
       .then(res => {
@@ -22,7 +24,7 @@ class Snippet extends Component{
   render() {
     let items = this.state.snippets.map((snippet, index) => {
         return (
-            <li key={index}>{snippet.code}</li>
+            <li key={index} className="center-block">{snippet.code}</li>
         )
     });
     return (
